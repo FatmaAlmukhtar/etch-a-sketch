@@ -12,3 +12,6 @@
     border: solid 1px white;
 }
 
+.grid:hover {
+    background-color: red;
+}
