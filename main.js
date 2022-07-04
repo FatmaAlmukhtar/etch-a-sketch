@@ -12,8 +12,8 @@ function generateGrid(size) {
     while(container.firstChild) {
         container.removeChild(container.firstChild);
     }
-    container.style.gridTemplateColumns = `repeat(${size}, 10px)`;
-    container.style.gridTemplateRows = `repeat(${size}, 10px)`;
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
     for(let i=1; i<=(size*size); i++) {
         newDiv = document.createElement('div');
