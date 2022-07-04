@@ -1,12 +1,14 @@
 body {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
     font-family: 'Arial';
+
 }
 
 .settings {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -16,7 +18,7 @@ body {
     grid-template-rows: repeat(16, 1fr);
     width: 500px;
     height: 500px;
-    margin: 50px auto;
+    margin: 15px auto;
     border: solid 3px black;
     border-radius: 5px;
     box-shadow: #fcfcfc 10px 10px, black 12px 12px;
@@ -41,6 +43,8 @@ body {
   padding: 12px 40px;
   text-align: center;
   margin: 20px 20px;
+  width: 150px;
+  height: 70px;
 }
 
 .btn:hover {
@@ -53,10 +57,9 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 0 20px;
-    height: 45px;
-    background-color: red;
-    border: 1px solid red;
-    box-shadow: #fff 4px 4px 0 0, red 4px 4px 0 1px;
+    background-color: #00FFD5;
+    border: 1px solid black;
+    box-shadow: #fff 4px 4px 0 0, black 4px 4px 0 1px;
 }
 
 input {
@@ -64,7 +67,7 @@ input {
     height: 35px;
     width: 90px;
     padding: 0;
-    background-color: red;
+    background-color: #00FFD5;
     cursor: pointer;
 }
 
@@ -87,4 +90,13 @@ img {
     width: 18px;
     margin-left: 5px;
     margin-top: 5px;
+}
+
+@media (max-width: 650px) {
+    body {
+        flex-direction: column;
+    }
+    .settings {
+        flex-direction: row;
+    }
 }

@@ -6,7 +6,7 @@ let colorPicker = document.querySelector('input');
 let eraser = document.querySelector('.btn.eraser');
 let rainbow = document.querySelector('.btn.rainbow');
 
-let color = 'red';
+let color = '#00FFD5';
 let drag = false;
 let rainbowActive = false;
 
@@ -64,19 +64,17 @@ function activatePen() {
 
 newGrid.addEventListener('click', () => {
     size = prompt('Enter the grid size');
-    if(size<=80) {
+    if(size<=80 && size>=4) {
         generateGrid(size);
         activatePen();
     }
-    else alert('Please choose a grid size no larger than 80 pixels'); 
+    else alert('Please choose a grid size 4 to 80 pixels'); 
 })
 
 colorPicker.addEventListener('input', () => {
     rainbowActive = false;
     color = colorPicker.value;
     btnColor.style.backgroundColor = color;
-    btnColor.style.border = color;
-    btnColor.style.boxShadow = `#fff 4px 4px 0 0, ${color} 4px 4px 0 1px`;
     colorPicker.style.backgroundColor = color;
     container.style.cursor = 'crosshair';
 })
