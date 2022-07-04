@@ -5,6 +5,11 @@ body {
     font-family: 'Arial';
 }
 
+.settings {
+    display: flex;
+    justify-content: space-between;
+}
+
 #container {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
@@ -15,7 +20,7 @@ body {
     border: solid 3px black;
     border-radius: 5px;
     box-shadow: #fcfcfc 10px 10px, black 12px 12px;
-    
+    cursor: crosshair;
 }
 
 .grid {
@@ -35,7 +40,7 @@ body {
   line-height: 20px;
   padding: 12px 40px;
   text-align: center;
-  margin-top: 20px;
+  margin: 20px 20px;
 }
 
 .btn:hover {
@@ -53,6 +58,7 @@ body {
     border: 1px solid red;
     box-shadow: #fff 4px 4px 0 0, red 4px 4px 0 1px;
 }
+
 input {
     border: none;
     height: 35px;
@@ -60,6 +66,9 @@ input {
     padding: 0;
     background-color: red;
     cursor: pointer;
+}
+
+.btn.eraser {
 }
 
 footer {

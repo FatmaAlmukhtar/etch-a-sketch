@@ -3,6 +3,7 @@ let grid = document.querySelectorAll('grid');
 let newGrid = document.querySelector('.btn.newGrid');
 let btnColor = document.querySelector('.btn.color');
 let colorPicker = document.querySelector('input');
+let eraser = document.querySelector('.btn.eraser');
 let color = 'red';
 let drag = false;
 
@@ -58,4 +59,11 @@ colorPicker.addEventListener('input', () => {
     btnColor.style.border = color;
     btnColor.style.boxShadow = `#fff 4px 4px 0 0, ${color} 4px 4px 0 1px`;
     colorPicker.style.backgroundColor = color;
+    container.style.cursor = 'crosshair';
+})
+
+eraser.addEventListener('click', () => {
+    color = '#fff';
+    activatePen();
+    container.style.cursor = 'cell';
 })
