@@ -4,8 +4,11 @@ let newGrid = document.querySelector('.btn.newGrid');
 let btnColor = document.querySelector('.btn.color');
 let colorPicker = document.querySelector('input');
 let eraser = document.querySelector('.btn.eraser');
+let rainbow = document.querySelector('.btn.rainbow');
+
 let color = 'red';
 let drag = false;
+let rainbowActive = false;
 
 container.addEventListener('mousedown', () => {
     drag = true;
@@ -39,6 +42,21 @@ function activatePen() {
     for(let i=0; i<grid.length; i++) {
         
         grid.item(i).addEventListener('mouseover', () => {
+            if (rainbowActive) {
+                /* random RGB color
+                r = Math.floor(Math.random() * 256);
+                g = Math.floor(Math.random() * 256);
+                b = Math.floor(Math.random() * 256);
+                color = `rgb(${r},${g},${b})`; */
+
+                /* random HSL(hue, saturation, lightness) color */
+                h = Math.floor(Math.random() * 360);
+                color = `hsl(${h}, 100%, 60%)`;
+                
+                /* random HEX color
+                hex = Math.floor(Math.random() * 0xffffff);
+                color = `#${hex.toString(16)}`;*/
+            }
             if (drag) grid.item(i).style.backgroundColor = color;
         })
     }
@@ -54,6 +72,7 @@ newGrid.addEventListener('click', () => {
 })
 
 colorPicker.addEventListener('input', () => {
+    rainbowActive = false;
     color = colorPicker.value;
     btnColor.style.backgroundColor = color;
     btnColor.style.border = color;
@@ -66,4 +85,8 @@ eraser.addEventListener('click', () => {
     color = '#fff';
     activatePen();
     container.style.cursor = 'cell';
+})
+
+rainbow.addEventListener('click', () => {
+    rainbowActive = true;
 })
