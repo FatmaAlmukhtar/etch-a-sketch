@@ -9,8 +9,8 @@ body {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     margin: 50px auto;
     border: solid 3px black;
     border-radius: 5px;
@@ -19,8 +19,8 @@ body {
 }
 
 .grid {
-    background-color: black;
-    border: solid 1px #D8D8D8;
+    background-color: white;
+    border: solid 1px #fafafa;
 }
 
 .btn {
