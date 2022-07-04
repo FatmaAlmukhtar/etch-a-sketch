@@ -1,6 +1,9 @@
 let container = document.getElementById('container');
 let grid = document.querySelectorAll('grid');
-let newGrid = document.querySelector('button');
+let newGrid = document.querySelector('.btn.newGrid');
+let btnColor = document.querySelector('.btn.color');
+let colorPicker = document.querySelector('input');
+let color = 'red';
 
 window.addEventListener('load', () => {
     generateGrid(16);
@@ -26,7 +29,7 @@ function generateGrid(size) {
 function activatePen() {
     for(let i=0; i<grid.length; i++) {
         grid.item(i).addEventListener('mouseover', () => {
-            grid.item(i).style.backgroundColor = 'red';
+            grid.item(i).style.backgroundColor = color;
         })
     }
 }
@@ -38,4 +41,12 @@ newGrid.addEventListener('click', () => {
         activatePen();
     }
     else alert('Please choose a grid size no larger than 100 pixels'); 
+})
+
+colorPicker.addEventListener('input', () => {
+    color = colorPicker.value;
+    btnColor.style.backgroundColor = color;
+    btnColor.style.border = color;
+    btnColor.style.boxShadow = `#fff 4px 4px 0 0, ${color} 4px 4px 0 1px`;
+    colorPicker.style.backgroundColor = color;
 })
