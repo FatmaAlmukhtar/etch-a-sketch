@@ -1,10 +1,11 @@
-let container = document.getElementById('container');
+const container = document.getElementById('container');
 let grid = document.querySelectorAll('grid');
-let newGrid = document.querySelector('.btn.newGrid');
-let btnColor = document.querySelector('.btn.color');
-let colorPicker = document.querySelector('input');
-let eraser = document.querySelector('.btn.eraser');
-let rainbow = document.querySelector('.btn.rainbow');
+const btnColor = document.querySelector('.btn.color');
+const colorPicker = document.querySelector('.colorPicker');
+const eraser = document.querySelector('.btn.eraser');
+const rainbow = document.querySelector('.btn.rainbow');
+const slider = document.querySelector('.slider');
+let currentSize = document.querySelector('span');
 
 let color = '#00FFD5';
 let drag = false;
@@ -62,13 +63,15 @@ function activatePen() {
     }
 }
 
-newGrid.addEventListener('click', () => {
-    size = prompt('Enter the grid size');
-    if(size<=80 && size>=6) {
-        generateGrid(size);
-        activatePen();
-    }
-    else alert('Please choose a grid size 6 to 80 pixels'); 
+slider.addEventListener('input', () => {
+    currentSize.textContent = slider.value + '×' + slider.value;
+    
+})
+
+slider.addEventListener('mouseup', () => {
+    size = slider.value
+    generateGrid(size);
+    activatePen();
 })
 
 colorPicker.addEventListener('input', () => {
@@ -101,6 +104,7 @@ colorPicker.addEventListener('click', () => {
 })
 
 eraser.addEventListener('click', () => {
+    rainbowActive = false;
     color = '#fff';
     activatePen();
     container.style.cursor = 'cell';
