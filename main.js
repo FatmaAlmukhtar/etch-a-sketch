@@ -64,19 +64,40 @@ function activatePen() {
 
 newGrid.addEventListener('click', () => {
     size = prompt('Enter the grid size');
-    if(size<=80 && size>=4) {
+    if(size<=80 && size>=6) {
         generateGrid(size);
         activatePen();
     }
-    else alert('Please choose a grid size 4 to 80 pixels'); 
+    else alert('Please choose a grid size 6 to 80 pixels'); 
 })
 
 colorPicker.addEventListener('input', () => {
     rainbowActive = false;
+    if (colorPicker.value === '#ffffff') {
+        color = colorPicker.value;
+        btnColor.style.backgroundColor = color;
+        colorPicker.style.backgroundColor = color;
+        container.style.cursor = 'crosshair';
+        btnColor.style.color = 'black';
+        btnColor.style.boxShadow = "#000 4px 4px 0 0, #000 4px 4px 0 1px";
+    }
+    else {
+        color = colorPicker.value;
+        btnColor.style.backgroundColor = color;
+        colorPicker.style.backgroundColor = color;
+        container.style.cursor = 'crosshair';
+        btnColor.style.color = 'white';
+        btnColor.style.boxShadow = "#fff 4px 4px 0 0, #000 4px 4px 0 1px";
+    }
     color = colorPicker.value;
     btnColor.style.backgroundColor = color;
     colorPicker.style.backgroundColor = color;
     container.style.cursor = 'crosshair';
+})
+
+colorPicker.addEventListener('click', () => {
+    rainbowActive = false;
+    color = colorPicker.value;
 })
 
 eraser.addEventListener('click', () => {

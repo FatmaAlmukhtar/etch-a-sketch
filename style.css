@@ -1,15 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Miniver&display=swap');
+
 body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    align-content: center;
     font-family: 'Arial';
-
+    margin: 0;
+    background-color: #dfcdff;
 }
 
+#logo {
+    margin: 30px auto;
+    font-family: 'Miniver';
+    font-size: 84px;
+    text-shadow: -4px 4px #ef3550,
+               -8px 8px #f48fb1,
+               -12px 12px #7e57c2,
+               -16px 16px #2196f3,
+               -20px 20px #26c6da;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
 .settings {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 #container {
@@ -18,11 +39,12 @@ body {
     grid-template-rows: repeat(16, 1fr);
     width: 500px;
     height: 500px;
-    margin: 15px auto;
+    margin: 50px auto;
     border: solid 3px black;
     border-radius: 5px;
     box-shadow: #fcfcfc 10px 10px, black 12px 12px;
     cursor: crosshair;
+    flex-shrink: 0;
 }
 
 .grid {
@@ -78,10 +100,10 @@ input {
 }
 footer {
     display: flex;
-    position: absolute;
-    bottom: 5px;
+    margin-top: 20px;
+    bottom: 0;
     font-size: 15px;
-    height: 25px;
+    height: 30px;
     align-items: center;
 }
 
@@ -93,10 +115,28 @@ img {
 }
 
 @media (max-width: 650px) {
-    body {
+    
+    main {
         flex-direction: column;
     }
     .settings {
         flex-direction: row;
+        margin-top: 50px;
+        justify-content: center;
     }
+    #container {
+        margin-top: 10px;
+        width: 450px;
+        height: 450px;
+    }
+    .btn {
+        height: 150px;
+        width: 75px;
+        padding: 0;
+    }
+    input {
+        height: 120px;
+        width: 65px;
+    }
+   
 }
