@@ -37,6 +37,9 @@ function generateGrid(size) {
         container.appendChild(newDiv);
     }
     grid = document.getElementsByClassName('grid');
+    color = colorPicker.value;
+    container.style.cursor = 'crosshair';
+    activatePen();
 }
 
 function activatePen() {
@@ -65,7 +68,6 @@ function activatePen() {
 
 slider.addEventListener('input', () => {
     currentSize.textContent = slider.value + '×' + slider.value;
-    
 })
 
 slider.addEventListener('mouseup', () => {
@@ -101,6 +103,7 @@ colorPicker.addEventListener('input', () => {
 colorPicker.addEventListener('click', () => {
     rainbowActive = false;
     color = colorPicker.value;
+    container.style.cursor = 'crosshair';
 })
 
 eraser.addEventListener('click', () => {
@@ -112,4 +115,5 @@ eraser.addEventListener('click', () => {
 
 rainbow.addEventListener('click', () => {
     rainbowActive = true;
+    container.style.cursor = 'crosshair';
 })
